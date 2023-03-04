@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 0 10px;
+    background: white;
+}
+.wrapper{
+    background: black;
+    border-radius: 20px;
+    padding: 35px 40px;
+}
+.wrapper header{
+    color: white;
+    display:  flex;
+    align-items: center;
+    justify-content: space-between;
+}
+header h2{
+    font-size: 1.6rem;
+}
+header .column{
+    display: flex;
+    align-items: center;
+}
+header .column span{
+    font-weight: 500;
+    font-size: 1.19rem;
+    margin-right: 15px;
+}
+.volume-slider input{
+ accent-color: white;
+ outline: none;
+}
+.keys-checkbox input{
+    appearance:  none;
+    width: 60px;
+    height: 30px;
+    outline: none;
+    position: relative;
+    border-radius: 30px;
+    cursor: pointer;
+    background:grey;
+}
+.keys-checkbox input::before{
+    content: "";
+    height: 20px;
+    width: 20px;
+    top: 50%;
+    left: 5px;
+    outline: none;
+    border-radius: inherit;
+    position: absolute;
+    background: whitesmoke;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+}
+.keys-checkbox input:checked::before{
+        left: 60%;
+        background: whitesmoke;
+
+}
+.piano-keys{
+    display: flex;
+    margin-top: 40px;
+    
+    
+}
+.piano-keys .key{
+    color:grey ;
+    list-style: none;
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+    text-transform: uppercase;
+}
+.piano-keys .black{
+    width: 44px;
+    height: 140px;
+    color: white;
+    margin:  0 -22px 0 -22px;
+    z-index: 2;
+    border-radius: 0 0 5px 5px;
+    background:linear-gradient(black ,black);
+}
+.piano-keys .black.active{
+    box-shadow: inset -5px 5px 20px rgba(0, 0, 0, 0.2);
+    background:linear-gradient(black,hsla(40, 1%, 39%, 0.94));
+}
+.piano-keys .white{
+    color: black;
+    width: 70px;
+    height: 230px;
+    border-radius: 8px;
+    border: 1px solid black;
+    background:linear-gradient(white 96%,rgba(175, 159, 159, 0.985) 4%);
+}
+.piano-keys .white.active{
+    box-shadow: inset -5px 5px 20px rgba(0, 0, 0, 0.2);
+    background:linear-gradient(white 0%,white 100%);
+}
+.piano-keys span{
+    position: absolute;
+    bottom: 20px;
+    width: 100px;
+    font-size: 1.13rem;
+    left: 37%; 
+}
+.piano-keys .key.hide span{
+    display: none;
+}
+
+
+@media screen and (max-width: 815px){
+    .wrapper{
+        padding: 25px;
+    }
+    header{
+        flex-direction: column;
+    }
+    header :where(h2, .column){
+        margin-bottom: 13px;
+    }
+    .volume-slider input{
+        max-width: 100px;
+    }
+    .piano-keys{
+        margin-top: 20px;
+    }
+    .piano-keys .key:where(:nth-child(9),:nth-child(10)){
+        display: none;
+    }
+    .piano-keys .black{
+        height: 100px;
+        width: 40px;
+        margin:  0 -20px 0 -20px;
+    }
+    .piano-keys .white{
+        height: 180px;
+        width: 60px;
+    }
+}
+@media screen and (max-width:615px) {
+    .piano-keys.key:nth-child(13),
+    .piano-keys.key:nth-child(14),
+    .piano-keys.key:nth-child(15),
+    .piano-keys.key:nth-child(16),
+    .piano-keys.key:nth-child(17){
+      display:none  
+    }
+    .piano-keys .white{
+        width: 50px;
+    }
+    
+}
